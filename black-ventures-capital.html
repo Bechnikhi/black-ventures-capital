@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Black Ventures Capital — Fonds d'investissement pour le développement en Afrique</title>
+<meta name="description" content="Black Ventures Capital est un fonds d'investissement basé au Qatar, dédié au financement et à la structuration de projets de développement en Afrique : énergie, agriculture, infrastructures et solutions financières innovantes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14171A;
+    --ink-soft:#2A2C2E;
+    --sand:#F3EEE4;
+    --sand-deep:#E8E0D0;
+    --maroon:#7C1B33;
+    --maroon-deep:#5A1225;
+    --ochre:#C68A2E;
+    --teal:#0E3B37;
+    --paper:#FAF7F1;
+    --line: rgba(20,23,26,0.12);
+    --line-inv: rgba(250,247,241,0.18);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-weight:400;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    line-height:1.08;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--maroon);
+  }
+  .eyebrow.on-dark{ color:var(--ochre); }
+  .wrap{ max-width:1240px; margin:0 auto; padding:0 32px; }
+  @media (max-width:640px){ .wrap{ padding:0 20px; } }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+  }
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    padding:22px 0;
+    transition:padding .35s ease, background .35s ease, border-color .35s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.site-nav.scrolled{
+    padding:14px 0;
+    background:rgba(20,23,26,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-inv);
+  }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces', serif; font-weight:500; font-size:19px;
+    color:#fff; letter-spacing:-0.01em;
+  }
+  nav.links{ display:flex; align-items:center; gap:34px; }
+  nav.links a{
+    color:rgba(250,247,241,0.82); font-size:14px; font-weight:400;
+    position:relative; padding:4px 0;
+  }
+  nav.links a:hover{ color:#fff; }
+  nav.links a.cta{
+    color:var(--ink); background:var(--ochre);
+    padding:10px 20px; border-radius:2px; font-weight:500;
+  }
+  nav.links a.cta:hover{ background:#d99a3c; }
+  .nav-toggle{ display:none; }
+  @media (max-width:880px){
+    nav.links{ display:none; }
+  }
+
+  /* ---------- LANGUAGE SWITCH ---------- */
+  .lang-switch{
+    display:flex; align-items:center; gap:2px;
+    border:1px solid rgba(250,247,241,0.3); border-radius:20px;
+    padding:3px; margin-left:8px;
+  }
+  html[dir="rtl"] .lang-switch{ margin-left:0; margin-right:8px; }
+  .lang-btn{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.04em;
+    color:rgba(250,247,241,0.65); background:transparent; border:none;
+    padding:6px 11px; border-radius:16px; cursor:pointer;
+    transition:background .2s ease, color .2s ease;
+  }
+  .lang-btn:hover{ color:#fff; }
+  .lang-btn.active{ background:var(--ochre); color:var(--ink); font-weight:600; }
+  @media (max-width:880px){
+    .lang-switch{ margin:0; }
+  }
+
+  /* ---------- RTL / ARABIC SUPPORT ---------- */
+  html[dir="rtl"] body{ font-family:'Cairo', 'Inter', sans-serif; text-align:right; }
+  html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3, html[dir="rtl"] h4{
+    font-family:'Cairo', serif; letter-spacing:0;
+  }
+  html[dir="rtl"] .eyebrow{ font-family:'Cairo', sans-serif; letter-spacing:0.02em; }
+  html[dir="rtl"] .sector-card .idx,
+  html[dir="rtl"] .stat p,
+  html[dir="rtl"] .insight-card .meta,
+  html[dir="rtl"] .corridor-label,
+  html[dir="rtl"] .footer-col h5,
+  html[dir="rtl"] .hero-caption{ font-family:'Cairo', sans-serif; }
+  html[dir="rtl"] .corridor-label{ direction:ltr; }
+  html[dir="rtl"] .cta-band, html[dir="rtl"] .section-head{ text-align:inherit; }
+  html[dir="rtl"] .sector-card .tag::after{ content:"←"; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; min-height:100vh;
+    display:flex; align-items:flex-end;
+    overflow:hidden;
+    background:var(--ink);
+  }
+  .hero-media{ position:absolute; inset:0; }
+  .hero-media img{
+    width:100%; height:100%; object-fit:cover; object-position:32% 32%;
+    transform:scale(1.04);
+    filter:saturate(1.06) contrast(1.03) brightness(0.95);
+  }
+  .hero-media::after{
+    content:""; position:absolute; inset:0;
+    background:
+      linear-gradient(180deg, rgba(20,16,14,0.35) 0%, rgba(20,16,14,0.02) 26%, rgba(20,16,14,0.28) 58%, rgba(20,16,14,0.95) 100%),
+      linear-gradient(100deg, rgba(20,16,14,0.6) 0%, rgba(20,16,14,0.08) 40%, rgba(20,16,14,0) 60%);
+  }
+  .hero-content{
+    position:relative; z-index:2; width:100%;
+    padding:180px 0 92px;
+  }
+  .hero-content .eyebrow{ color:var(--ochre); margin-bottom:22px; display:flex; align-items:center; gap:12px;}
+  .hero-content .eyebrow .rule{ width:36px; height:1px; background:var(--ochre); display:inline-block; }
+  .hero h1{
+    color:#fff; font-size:clamp(38px, 6vw, 76px);
+    max-width:15ch;
+    font-weight:400;
+  }
+  .hero h1 em{ font-style:italic; color:var(--ochre); font-weight:400; }
+  .hero-sub{
+    color:rgba(250,247,241,0.86); font-size:17px; max-width:46ch;
+    margin-top:26px; font-weight:300;
+  }
+  .hero-actions{ display:flex; gap:16px; margin-top:38px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:14px 26px; font-size:14px; font-weight:500;
+    border-radius:2px; border:1px solid transparent; cursor:pointer;
+    transition:all .25s ease;
+    font-family:'Inter', sans-serif;
+  }
+  .btn-primary{ background:var(--ochre); color:var(--ink); }
+  .btn-primary:hover{ background:#d99a3c; transform:translateY(-1px); }
+  .btn-outline{ border-color:rgba(250,247,241,0.4); color:#fff; }
+  .btn-outline:hover{ border-color:#fff; background:rgba(250,247,241,0.08); }
+  .hero-caption{
+    position:absolute; right:32px; bottom:28px; z-index:2;
+    font-family:'IBM Plex Mono', monospace; font-size:11px;
+    color:rgba(250,247,241,0.55); letter-spacing:0.04em;
+  }
+
+  /* ---------- CORRIDOR SIGNATURE DIVIDER ---------- */
+  .corridor{
+    background:var(--ink); padding:0 0 64px; position:relative;
+  }
+  .corridor .wrap{ padding-top:8px; }
+  .corridor svg{ width:100%; height:auto; display:block; }
+  .corridor-label{
+    display:flex; justify-content:space-between; margin-top:10px;
+    font-family:'IBM Plex Mono', monospace; font-size:10.5px;
+    color:rgba(250,247,241,0.5); letter-spacing:0.04em;
+    flex-wrap:wrap; row-gap:6px;
+  }
+  .corridor-label span{ white-space:nowrap; }
+  @media (max-width:900px){
+    .corridor-label span:nth-child(3),
+    .corridor-label span:nth-child(4),
+    .corridor-label span:nth-child(6),
+    .corridor-label span:nth-child(7){ display:none; }
+  }
+  @media (max-width:560px){
+    .corridor-label span:not(:first-child):not(:last-child){ display:none; }
+  }
+
+  /* ---------- STATS ---------- */
+  .stats{
+    background:var(--ink); color:var(--paper);
+    padding:0 0 96px;
+  }
+  .stats-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+    border-top:1px solid var(--line-inv);
+  }
+  .stat{
+    padding:36px 28px 0; border-right:1px solid var(--line-inv);
+  }
+  .stat:last-child{ border-right:none; }
+  .stat .num{
+    font-family:'Fraunces', serif; font-size:clamp(32px,4vw,52px); font-weight:400;
+    color:var(--ochre);
+  }
+  .stat .num sup{ font-size:0.4em; top:-0.9em; }
+  .stat p{
+    margin-top:10px; font-size:13.5px; color:rgba(250,247,241,0.68);
+    max-width:26ch; padding-bottom:8px;
+  }
+  @media (max-width:880px){
+    .stats-grid{ grid-template-columns:repeat(2,1fr); }
+    .stat{ border-bottom:1px solid var(--line-inv); padding-bottom:28px; margin-bottom:0;}
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{ padding:120px 0; }
+  @media (max-width:700px){ section{ padding:76px 0; } }
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end; gap:40px;
+    margin-bottom:56px; flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-size:clamp(28px,3.4vw,44px); margin-top:16px; max-width:18ch;
+  }
+  .section-head .lede{
+    max-width:38ch; font-size:15.5px; color:var(--ink-soft); padding-bottom:6px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{ background:var(--sand); }
+  .about-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:72px; align-items:start; }
+  .about-grid p{ font-size:16px; color:var(--ink-soft); margin-bottom:18px; max-width:52ch; }
+  .about-figures{ display:flex; flex-direction:column; gap:0; border-top:1px solid var(--line); }
+  .about-figures .row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:20px 0; border-bottom:1px solid var(--line);
+  }
+  .about-figures .row .label{ font-size:14px; color:var(--ink-soft); }
+  .about-figures .row .val{ font-family:'Fraunces', serif; font-size:22px; color:var(--maroon); }
+  @media (max-width:880px){ .about-grid{ grid-template-columns:1fr; gap:40px; } }
+
+  /* ---------- SECTORS ---------- */
+  .sectors{ background:var(--paper); }
+  .sector-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line);
+  }
+  .sector-card{
+    background:var(--paper); padding:38px 28px 32px;
+    display:flex; flex-direction:column; min-height:340px;
+    transition:background .3s ease;
+    position:relative; overflow:hidden;
+  }
+  .sector-card > *{ position:relative; z-index:1; }
+  .sector-card:hover{ background:var(--sand); }
+  .sector-card .idx{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ochre); }
+  .sector-card h3{ font-size:22px; font-weight:500; margin-top:20px; }
+  .sector-card p{ font-size:14px; color:var(--ink-soft); margin-top:14px; flex:1; }
+  .sector-card .tag{
+    margin-top:22px; font-family:'IBM Plex Mono', monospace; font-size:11.5px;
+    color:var(--maroon); letter-spacing:0.03em; display:flex; align-items:center; gap:8px;
+  }
+  .sector-card .tag::after{ content:"→"; }
+  @media (max-width:980px){ .sector-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .sector-grid{ grid-template-columns:1fr; } }
+
+  /* -- dynamic sector background themes -- */
+  .theme-energy::before, .theme-energy::after,
+  .theme-infra::before, .theme-infra::after,
+  .theme-finance::before, .theme-finance::after,
+  .theme-agri::before{
+    content:""; position:absolute; z-index:0; pointer-events:none;
+  }
+  /* Énergie — rayons tournants façon corona solaire */
+  .theme-energy::before{
+    inset:-30%;
+    background:repeating-conic-gradient(from 0deg at 82% 18%,
+      rgba(198,138,46,0.20) 0deg 2.4deg, transparent 2.4deg 13deg);
+    animation:bvc-spin 46s linear infinite;
+  }
+  .theme-energy::after{
+    inset:0;
+    background:radial-gradient(circle at 82% 18%, rgba(198,138,46,0.22), transparent 46%);
+    animation:bvc-pulse 4s ease-in-out infinite;
+  }
+  /* Agriculture — sillons animés */
+  .theme-agri::before{
+    inset:-10% -10%;
+    background-image:repeating-linear-gradient(178deg, rgba(14,59,55,0.14) 0 2px, transparent 2px 26px);
+    animation:bvc-drift-y 9s linear infinite;
+  }
+  /* Infrastructures — grille bleu-print + balayage diagonal */
+  .theme-infra::before{
+    inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(124,27,51,0.10) 0 1px, transparent 1px 28px),
+      repeating-linear-gradient(90deg, rgba(124,27,51,0.10) 0 1px, transparent 1px 28px);
+  }
+  .theme-infra::after{
+    inset:-20%;
+    background:linear-gradient(115deg, transparent 42%, rgba(198,138,46,0.20) 50%, transparent 58%);
+    background-size:220% 220%;
+    animation:bvc-sweep 7s ease-in-out infinite;
+  }
+  /* Solutions financières — lignes de croissance + ticker */
+  .theme-finance::before{
+    inset:0;
+    background-image:repeating-linear-gradient(115deg, rgba(198,138,46,0.16) 0 2px, transparent 2px 24px);
+  }
+  .theme-finance::after{
+    left:6%; right:6%; height:1px; top:34%;
+    background:linear-gradient(90deg, transparent, rgba(124,27,51,0.55), transparent);
+    animation:bvc-ticker 4.5s linear infinite;
+  }
+  @keyframes bvc-spin{ to{ transform:rotate(360deg); } }
+  @keyframes bvc-pulse{ 0%,100%{ opacity:.55; } 50%{ opacity:1; } }
+  @keyframes bvc-drift-y{ from{ background-position-y:0; } to{ background-position-y:52px; } }
+  @keyframes bvc-sweep{ 0%{ background-position:-30% -30%; } 100%{ background-position:130% 130%; } }
+  @keyframes bvc-ticker{
+    0%{ transform:translateX(-18%); opacity:0; }
+    15%{ opacity:1; } 85%{ opacity:1; }
+    100%{ transform:translateX(18%); opacity:0; }
+  }
+
+  /* ---------- ADVISORY (dark band) ---------- */
+  .advisory{ background:var(--teal); color:var(--paper); position:relative; overflow:hidden; }
+  .advisory::before{
+    content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(250,247,241,0.06) 0 1px, transparent 1px 36px),
+      repeating-linear-gradient(90deg, rgba(250,247,241,0.06) 0 1px, transparent 1px 36px);
+  }
+  .advisory::after{
+    content:""; position:absolute; inset:-15%; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(circle at 84% 18%, rgba(198,138,46,0.20), transparent 42%),
+      radial-gradient(circle at 10% 88%, rgba(198,138,46,0.14), transparent 40%);
+    animation:bvc-pulse-glow 6s ease-in-out infinite alternate;
+  }
+  @keyframes bvc-pulse-glow{
+    from{ opacity:.65; transform:scale(1); }
+    to{ opacity:1; transform:scale(1.05); }
+  }
+  .advisory .wrap{ position:relative; z-index:1; }
+  .advisory .section-head h2{ color:#fff; }
+  .advisory .section-head .lede{ color:rgba(250,247,241,0.78); }
+  .advisory .eyebrow{ color:var(--ochre); }
+  .advisory-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line-inv); border:1px solid var(--line-inv); }
+  .advisory-card{ background:rgba(14,59,55,0.82); position:relative; z-index:1; padding:34px 30px; }
+  .advisory-card h4{ font-size:18px; font-weight:500; color:#fff; }
+  .advisory-card p{ font-size:14px; color:rgba(250,247,241,0.75); margin-top:12px; }
+  @media (max-width:700px){ .advisory-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- PROCESS ---------- */
+  .process{ background:var(--sand); }
+  .process-list{ border-top:1px solid var(--line); }
+  .process-item{
+    display:grid; grid-template-columns:80px 1fr 1.3fr; gap:28px;
+    padding:34px 0; border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .process-item .step{ font-family:'Fraunces', serif; font-style:italic; font-size:26px; color:var(--maroon); }
+  .process-item h4{ font-size:19px; font-weight:500; }
+  .process-item p{ font-size:14.5px; color:var(--ink-soft); }
+  @media (max-width:760px){
+    .process-item{ grid-template-columns:1fr; gap:8px; }
+  }
+
+  /* ---------- INSIGHTS ---------- */
+  .insights{ background:var(--paper); }
+  .insight-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:34px; }
+  .insight-card{ border-top:1px solid var(--line); padding-top:22px; }
+  .insight-card .meta{ font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--maroon); letter-spacing:0.05em; }
+  .insight-card h4{ font-size:19px; font-weight:500; margin-top:14px; max-width:26ch; }
+  .insight-card p{ font-size:14px; color:var(--ink-soft); margin-top:12px; }
+  @media (max-width:880px){ .insight-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- CTA ---------- */
+  .cta-band{
+    background:var(--maroon); color:#fff; text-align:center; padding:110px 0;
+    position:relative; overflow:hidden;
+  }
+  .cta-band::before{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(circle at 20% 20%, rgba(198,138,46,0.25), transparent 45%),
+               radial-gradient(circle at 82% 78%, rgba(198,138,46,0.18), transparent 40%);
+  }
+  .cta-band > *{ position:relative; z-index:1; }
+  .cta-band h2{ font-size:clamp(30px,4.2vw,50px); max-width:22ch; margin:0 auto; }
+  .cta-band p{ margin-top:18px; color:rgba(255,255,255,0.82); max-width:44ch; margin-left:auto; margin-right:auto; }
+  .cta-band .hero-actions{ justify-content:center; margin-top:36px; }
+  .cta-band .btn-outline{ border-color:rgba(255,255,255,0.45); }
+
+  /* ---------- FOOTER ---------- */
+  footer{ background:var(--ink); color:rgba(250,247,241,0.7); padding:80px 0 32px; }
+  .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:48px; padding-bottom:56px; border-bottom:1px solid var(--line-inv); }
+  .footer-grid .brand{ margin-bottom:16px; }
+  .footer-grid p.desc{ font-size:14px; max-width:32ch; color:rgba(250,247,241,0.6); }
+  .footer-col h5{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--ochre); margin-bottom:16px;
+  }
+  .footer-col a{ display:block; font-size:14px; color:rgba(250,247,241,0.72); padding:6px 0; }
+  .footer-col a:hover{ color:#fff; }
+  .footer-bottom{
+    display:flex; justify-content:space-between; padding-top:28px; font-size:12.5px;
+    color:rgba(250,247,241,0.45); flex-wrap:wrap; gap:10px;
+  }
+  @media (max-width:880px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .footer-grid{ grid-template-columns:1fr; } }
+
+  /* reveal on scroll */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<header class="site-nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">Black Ventures Capital</a>
+    <nav class="links">
+      <a href="#about" data-i18n="nav_about">À propos</a>
+      <a href="#sectors" data-i18n="nav_sectors">Secteurs</a>
+      <a href="#advisory" data-i18n="nav_advisory">Conseil &amp; Structuration</a>
+      <a href="#process" data-i18n="nav_process">Approche</a>
+      <a href="#insights" data-i18n="nav_insights">Actualités</a>
+      <a href="#contact" class="cta" data-i18n="nav_contact">Nous contacter</a>
+      <div class="lang-switch" role="group" aria-label="Choisir la langue / Choose language / اختر اللغة">
+        <button type="button" class="lang-btn active" data-lang="fr">FR</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="ar">AR</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-media">
+    <img src="lusail2-cropped.jpg"
+         data-i18n-alt="hero_img_alt"
+         alt="Vue panoramique de la skyline de Lusail, Qatar, au crépuscule">
+  </div>
+  <div class="hero-content wrap">
+    <h1 data-i18n="hero_h1">Fond Qatari,<br>Ambition <em>Africaine</em>.</h1>
+    <p class="hero-sub" data-i18n="hero_sub">Black Ventures Capital structure et finance les projets d'énergie, d'agriculture et d'infrastructures qui construisent l'Afrique de demain — aux côtés des gouvernements et du secteur privé.</p>
+    <div class="hero-actions">
+      <a href="#sectors" class="btn btn-primary" data-i18n="hero_btn_primary">Nos secteurs d'investissement</a>
+      <a href="#contact" class="btn btn-outline" data-i18n="hero_btn_outline">Discuter d'un projet</a>
+    </div>
+  </div>
+
+</section>
+
+<div class="corridor">
+  <div class="wrap">
+    <svg viewBox="0 0 1600 90" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M20,68 C 220,68 260,14 460,14 C 660,14 620,60 820,60 C 1020,60 980,18 1180,18 C 1380,18 1400,66 1580,66" fill="none" stroke="rgba(250,247,241,0.18)" stroke-width="1"/>
+      <path d="M20,68 C 220,68 260,14 460,14 C 660,14 620,60 820,60 C 1020,60 980,18 1180,18 C 1380,18 1400,66 1580,66" fill="none" stroke="#C68A2E" stroke-width="1.4" stroke-dasharray="3 7" stroke-linecap="round"/>
+      <circle cx="20" cy="68" r="5" fill="#C68A2E"/>
+      <circle cx="196" cy="34" r="3.5" fill="#F3EEE4"/>
+      <circle cx="372" cy="15" r="3.5" fill="#F3EEE4"/>
+      <circle cx="548" cy="25" r="3.5" fill="#F3EEE4"/>
+      <circle cx="724" cy="53" r="3.5" fill="#F3EEE4"/>
+      <circle cx="900" cy="59" r="3.5" fill="#F3EEE4"/>
+      <circle cx="1076" cy="32" r="3.5" fill="#F3EEE4"/>
+      <circle cx="1252" cy="20" r="3.5" fill="#F3EEE4"/>
+      <circle cx="1416" cy="46" r="3.5" fill="#F3EEE4"/>
+      <circle cx="1580" cy="66" r="5" fill="#C68A2E"/>
+    </svg>
+    <div class="corridor-label">
+      <span>DOHA</span><span>DAKAR</span><span>CONAKRY</span><span>OUAGADOUGOU</span><span>ABIDJAN</span><span>LIBREVILLE</span><span>DOUALA</span><span>NAIROBI</span><span>LUSAKA</span><span>LE CAP</span>
+    </div>
+  </div>
+</div>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <div class="num">04</div>
+        <p data-i18n="stat1_p">Secteurs stratégiques : énergie, agriculture, infrastructures, solutions financières alternatives</p>
+      </div>
+      <div class="stat reveal">
+        <div class="num">2</div>
+        <p data-i18n="stat2_p">Missions permanentes : accompagnement des gouvernements et structuration financière du secteur privé</p>
+      </div>
+      <div class="stat reveal">
+        <div class="num" data-i18n="stat3_num">1<sup>er</sup></div>
+        <p data-i18n="stat3_p">Fonds qatari entièrement dédié aux projets de développement sur le continent africain</p>
+      </div>
+      <div class="stat reveal">
+        <div class="num">∞</div>
+        <p data-i18n="stat4_p">Un pont durable entre les capitaux du Golfe et les priorités de développement africaines</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="eyebrow" data-i18n="about_eyebrow">À propos</div>
+        <h2 style="margin-top:16px;" data-i18n="about_h2">Un fonds qatari, une conviction africaine</h2>
+        <p data-i18n="about_p1">Black Ventures Capital est un fonds d'investissement dédié exclusivement aux projets de développement en Afrique. Nous mobilisons du capital patient et de l'expertise de structuration pour transformer des projets ambitieux en réalisations concrètes.</p>
+        <p data-i18n="about_p2">Notre rôle ne s'arrête pas au financement : nous accompagnons les gouvernements dans la structuration de leurs grands projets d'infrastructure et de service public, et nous soutenons le secteur privé dans la construction de montages financiers solides, innovants et adaptés aux réalités locales.</p>
+        <p data-i18n="about_p3">Notre conviction est simple : l'Afrique dispose des ressources, des marchés et du capital humain nécessaires à sa transformation. Ce qui manque souvent, c'est un partenaire capable de structurer, financer et accompagner dans la durée.</p>
+      </div>
+      <div class="about-figures reveal">
+        <div class="row"><span class="label" data-i18n="about_row_siege_label">Siège</span><span class="val" data-i18n="about_row_siege_val">Qatar</span></div>
+        <div class="row"><span class="label" data-i18n="about_row_zone_label">Zone d'intervention</span><span class="val" data-i18n="about_row_zone_val">Afrique</span></div>
+        <div class="row"><span class="label" data-i18n="about_row_clients_label">Clients</span><span class="val" data-i18n="about_row_clients_val">Gouvernements &amp; entreprises</span></div>
+        <div class="row"><span class="label" data-i18n="about_row_approche_label">Approche</span><span class="val" data-i18n="about_row_approche_val">Financement + structuration</span></div>
+        <div class="row"><span class="label" data-i18n="about_row_horizon_label">Horizon</span><span class="val" data-i18n="about_row_horizon_val">Capital patient</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sectors" id="sectors">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow" data-i18n="sectors_eyebrow">Secteurs d'investissement</div>
+        <h2 data-i18n="sectors_h2">Quatre secteurs, une même finalité : le développement durable de l'Afrique</h2>
+      </div>
+      <p class="lede" data-i18n="sectors_lede">Nos équipes structurent des financements sur mesure pour les projets qui répondent aux besoins essentiels du continent.</p>
+    </div>
+    <div class="sector-grid">
+      <div class="sector-card theme-energy reveal">
+        <span class="idx" data-i18n="sector1_idx">01 — Énergie</span>
+        <h3 data-i18n="sector1_h3">Énergie</h3>
+        <p data-i18n="sector1_p">Production, transport et accès à l'énergie : projets conventionnels et renouvelables conçus pour sécuriser l'approvisionnement énergétique des territoires.</p>
+        <span class="tag" data-i18n="sector_tag">Voir le secteur</span>
+      </div>
+      <div class="sector-card theme-agri reveal">
+        <span class="idx" data-i18n="sector2_idx">02 — Agriculture</span>
+        <h3 data-i18n="sector2_h3">Agriculture</h3>
+        <p data-i18n="sector2_p">Chaînes de valeur agricoles, irrigation, transformation et logistique rurale, au service de la souveraineté alimentaire et de l'emploi local.</p>
+        <span class="tag" data-i18n="sector_tag">Voir le secteur</span>
+      </div>
+      <div class="sector-card theme-infra reveal">
+        <span class="idx" data-i18n="sector3_idx">03 — Infrastructures</span>
+        <h3 data-i18n="sector3_h3">Infrastructures</h3>
+        <p data-i18n="sector3_p">Routes, ports, transport urbain et équipements publics : les fondations physiques dont dépendent la croissance et l'intégration régionale.</p>
+        <span class="tag" data-i18n="sector_tag">Voir le secteur</span>
+      </div>
+      <div class="sector-card theme-finance reveal">
+        <span class="idx" data-i18n="sector4_idx">04 — Solutions financières</span>
+        <h3 data-i18n="sector4_h3">Solutions financières alternatives &amp; innovantes</h3>
+        <p data-i18n="sector4_p">Mécanismes de financement mixte, garanties, financements islamiques et instruments sur mesure pour des projets aux profils de risque spécifiques.</p>
+        <span class="tag" data-i18n="sector_tag">Voir le secteur</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="advisory" id="advisory">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow" data-i18n="advisory_eyebrow">Conseil &amp; structuration financière</div>
+        <h2 data-i18n="advisory_h2">Un partenaire de structuration, pas seulement un bailleur de fonds</h2>
+      </div>
+      <p class="lede" data-i18n="advisory_lede">Nous intervenons en amont du financement, pour bâtir des projets bancables et des montages durables.</p>
+    </div>
+    <div class="advisory-grid">
+      <div class="advisory-card reveal">
+        <h4 data-i18n="advisory1_h4">Pour les gouvernements</h4>
+        <p data-i18n="advisory1_p">Structuration de projets d'infrastructure publique, montages en partenariat public-privé, accompagnement dans la mobilisation de financements internationaux et le dialogue avec les bailleurs.</p>
+      </div>
+      <div class="advisory-card reveal">
+        <h4 data-i18n="advisory2_h4">Pour le secteur privé</h4>
+        <p data-i18n="advisory2_p">Structuration financière de projets industriels et agricoles, montage de dette et de fonds propres, accès à des instruments de financement alternatifs adaptés à chaque marché.</p>
+      </div>
+      <div class="advisory-card reveal">
+        <h4 data-i18n="advisory3_h4">Structuration financière</h4>
+        <p data-i18n="advisory3_p">Conception de montages combinant capital, dette concessionnelle et garanties, pour optimiser le coût du capital et le partage des risques entre parties prenantes.</p>
+      </div>
+      <div class="advisory-card reveal">
+        <h4 data-i18n="advisory4_h4">Accompagnement long terme</h4>
+        <p data-i18n="advisory4_p">Suivi de la mise en œuvre, gouvernance de projet et reporting d'impact, du bouclage financier jusqu'à la mise en exploitation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow" data-i18n="process_eyebrow">Notre approche</div>
+        <h2 data-i18n="process_h2">De l'idée au projet financé</h2>
+      </div>
+      <p class="lede" data-i18n="process_lede">Une méthode en trois temps, appliquée à chaque projet que nous accompagnons.</p>
+    </div>
+    <div class="process-list">
+      <div class="process-item reveal">
+        <span class="step">01</span>
+        <h4 data-i18n="process1_h4">Diagnostic &amp; structuration</h4>
+        <p data-i18n="process1_p">Nous évaluons la faisabilité technique, économique et financière du projet, et concevons un montage adapté à son contexte et à ses porteurs.</p>
+      </div>
+      <div class="process-item reveal">
+        <span class="step">02</span>
+        <h4 data-i18n="process2_h4">Mobilisation de capital &amp; partenariats</h4>
+        <p data-i18n="process2_p">Nous engageons nos propres ressources et mobilisons des partenaires financiers complémentaires pour sécuriser le bouclage financier du projet.</p>
+      </div>
+      <div class="process-item reveal">
+        <span class="step">03</span>
+        <h4 data-i18n="process3_h4">Suivi, gouvernance &amp; impact</h4>
+        <p data-i18n="process3_p">Nous accompagnons la réalisation du projet dans la durée, avec un suivi rigoureux de sa performance et de son impact sur les territoires.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="insights" id="insights">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow" data-i18n="insights_eyebrow">Actualités &amp; perspectives</div>
+        <h2 data-i18n="insights_h2">Regards sur l'investissement en Afrique</h2>
+      </div>
+      <p class="lede" data-i18n="insights_lede">Analyses et prises de position de nos équipes sur les tendances qui façonnent les marchés africains.</p>
+    </div>
+    <div class="insight-grid">
+      <div class="insight-card reveal">
+        <div class="meta" data-i18n="insight_meta">PERSPECTIVE</div>
+        <h4 data-i18n="insight1_h4">Financement mixte : accélérer les infrastructures africaines</h4>
+        <p data-i18n="insight1_p">Comment combiner capital patient, dette concessionnelle et garanties pour débloquer des projets structurants.</p>
+      </div>
+      <div class="insight-card reveal">
+        <div class="meta" data-i18n="insight_meta">PERSPECTIVE</div>
+        <h4 data-i18n="insight2_h4">Agriculture : sécuriser les chaînes de valeur locales</h4>
+        <p data-i18n="insight2_p">Les leviers de financement pour transformer le potentiel agricole du continent en filières compétitives.</p>
+      </div>
+      <div class="insight-card reveal">
+        <div class="meta" data-i18n="insight_meta">PERSPECTIVE</div>
+        <h4 data-i18n="insight3_h4">Golfe–Afrique : un corridor de capital en construction</h4>
+        <p data-i18n="insight3_p">Pourquoi les fonds du Golfe jouent un rôle croissant dans le financement du développement africain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <h2 data-i18n="cta_h2">Construisons ensemble le prochain projet structurant.</h2>
+    <p data-i18n="cta_p">Gouvernements, institutions ou entreprises : parlons de votre projet et de la manière dont nous pouvons le structurer et le financer.</p>
+    <div class="hero-actions">
+      <a href="mailto:info@blackventurescapital.com" class="btn btn-primary">info@blackventurescapital.com</a>
+      <a href="#top" class="btn btn-outline" data-i18n="cta_btn_outline">Retour en haut</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="brand">Black Ventures Capital</a>
+        <p class="desc" data-i18n="footer_desc">Fonds d'investissement basé au Qatar, dédié au financement et à la structuration de projets de développement en Afrique.</p>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footer_sectors_h5">Secteurs</h5>
+        <a href="#sectors" data-i18n="sector1_h3">Énergie</a>
+        <a href="#sectors" data-i18n="sector2_h3">Agriculture</a>
+        <a href="#sectors" data-i18n="sector3_h3">Infrastructures</a>
+        <a href="#sectors" data-i18n="footer_sector4">Solutions financières</a>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footer_fund_h5">Fonds</h5>
+        <a href="#about" data-i18n="nav_about">À propos</a>
+        <a href="#advisory" data-i18n="nav_advisory">Conseil &amp; structuration</a>
+        <a href="#process" data-i18n="footer_fund_process">Notre approche</a>
+        <a href="#insights" data-i18n="nav_insights">Actualités</a>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footer_contact_h5">Contact</h5>
+        <a href="mailto:info@blackventurescapital.com">info@blackventurescapital.com</a>
+        <a href="#top" data-i18n="footer_location">Lusail, Qatar</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer_copy">© 2026 Black Ventures Capital. Tous droits réservés.</span>
+      <span data-i18n="footer_tag">Lusail, Qatar — au service du développement africain</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav shrink on scroll
+  const nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive:true });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold:0.15 });
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // ---------- LANGUAGE SWITCHER ----------
+  const translations = {
+    fr: {
+      title: "Black Ventures Capital — Fonds d'investissement pour le développement en Afrique",
+      meta_desc: "Black Ventures Capital est un fonds d'investissement basé au Qatar, dédié au financement et à la structuration de projets de développement en Afrique : énergie, agriculture, infrastructures et solutions financières innovantes.",
+      nav_about: "À propos", nav_sectors: "Secteurs", nav_advisory: "Conseil &amp; Structuration",
+      nav_process: "Approche", nav_insights: "Actualités", nav_contact: "Nous contacter",
+      hero_img_alt: "Vue panoramique de la skyline de Lusail, Qatar, au crépuscule",
+      hero_h1: "Fond Qatari,<br>Ambition <em>Africaine</em>.",
+      hero_sub: "Black Ventures Capital structure et finance les projets d'énergie, d'agriculture et d'infrastructures qui construisent l'Afrique de demain — aux côtés des gouvernements et du secteur privé.",
+      hero_btn_primary: "Nos secteurs d'investissement", hero_btn_outline: "Discuter d'un projet",
+      stat1_p: "Secteurs stratégiques : énergie, agriculture, infrastructures, solutions financières alternatives",
+      stat2_p: "Missions permanentes : accompagnement des gouvernements et structuration financière du secteur privé",
+      stat3_num: "1<sup>er</sup>", stat3_p: "Fonds qatari entièrement dédié aux projets de développement sur le continent africain",
+      stat4_p: "Un pont durable entre les capitaux du Golfe et les priorités de développement africaines",
+      about_eyebrow: "À propos", about_h2: "Un fonds qatari, une conviction africaine",
+      about_p1: "Black Ventures Capital est un fonds d'investissement dédié exclusivement aux projets de développement en Afrique. Nous mobilisons du capital patient et de l'expertise de structuration pour transformer des projets ambitieux en réalisations concrètes.",
+      about_p2: "Notre rôle ne s'arrête pas au financement : nous accompagnons les gouvernements dans la structuration de leurs grands projets d'infrastructure et de service public, et nous soutenons le secteur privé dans la construction de montages financiers solides, innovants et adaptés aux réalités locales.",
+      about_p3: "Notre conviction est simple : l'Afrique dispose des ressources, des marchés et du capital humain nécessaires à sa transformation. Ce qui manque souvent, c'est un partenaire capable de structurer, financer et accompagner dans la durée.",
+      about_row_siege_label: "Siège", about_row_siege_val: "Qatar",
+      about_row_zone_label: "Zone d'intervention", about_row_zone_val: "Afrique",
+      about_row_clients_label: "Clients", about_row_clients_val: "Gouvernements &amp; entreprises",
+      about_row_approche_label: "Approche", about_row_approche_val: "Financement + structuration",
+      about_row_horizon_label: "Horizon", about_row_horizon_val: "Capital patient",
+      sectors_eyebrow: "Secteurs d'investissement",
+      sectors_h2: "Quatre secteurs, une même finalité : le développement durable de l'Afrique",
+      sectors_lede: "Nos équipes structurent des financements sur mesure pour les projets qui répondent aux besoins essentiels du continent.",
+      sector1_idx: "01 — Énergie", sector1_h3: "Énergie",
+      sector1_p: "Production, transport et accès à l'énergie : projets conventionnels et renouvelables conçus pour sécuriser l'approvisionnement énergétique des territoires.",
+      sector2_idx: "02 — Agriculture", sector2_h3: "Agriculture",
+      sector2_p: "Chaînes de valeur agricoles, irrigation, transformation et logistique rurale, au service de la souveraineté alimentaire et de l'emploi local.",
+      sector3_idx: "03 — Infrastructures", sector3_h3: "Infrastructures",
+      sector3_p: "Routes, ports, transport urbain et équipements publics : les fondations physiques dont dépendent la croissance et l'intégration régionale.",
+      sector4_idx: "04 — Solutions financières", sector4_h3: "Solutions financières alternatives &amp; innovantes",
+      sector4_p: "Mécanismes de financement mixte, garanties, financements islamiques et instruments sur mesure pour des projets aux profils de risque spécifiques.",
+      sector_tag: "Voir le secteur", footer_sector4: "Solutions financières",
+      advisory_eyebrow: "Conseil &amp; structuration financière",
+      advisory_h2: "Un partenaire de structuration, pas seulement un bailleur de fonds",
+      advisory_lede: "Nous intervenons en amont du financement, pour bâtir des projets bancables et des montages durables.",
+      advisory1_h4: "Pour les gouvernements",
+      advisory1_p: "Structuration de projets d'infrastructure publique, montages en partenariat public-privé, accompagnement dans la mobilisation de financements internationaux et le dialogue avec les bailleurs.",
+      advisory2_h4: "Pour le secteur privé",
+      advisory2_p: "Structuration financière de projets industriels et agricoles, montage de dette et de fonds propres, accès à des instruments de financement alternatifs adaptés à chaque marché.",
+      advisory3_h4: "Structuration financière",
+      advisory3_p: "Conception de montages combinant capital, dette concessionnelle et garanties, pour optimiser le coût du capital et le partage des risques entre parties prenantes.",
+      advisory4_h4: "Accompagnement long terme",
+      advisory4_p: "Suivi de la mise en œuvre, gouvernance de projet et reporting d'impact, du bouclage financier jusqu'à la mise en exploitation.",
+      process_eyebrow: "Notre approche", process_h2: "De l'idée au projet financé",
+      process_lede: "Une méthode en trois temps, appliquée à chaque projet que nous accompagnons.",
+      process1_h4: "Diagnostic &amp; structuration",
+      process1_p: "Nous évaluons la faisabilité technique, économique et financière du projet, et concevons un montage adapté à son contexte et à ses porteurs.",
+      process2_h4: "Mobilisation de capital &amp; partenariats",
+      process2_p: "Nous engageons nos propres ressources et mobilisons des partenaires financiers complémentaires pour sécuriser le bouclage financier du projet.",
+      process3_h4: "Suivi, gouvernance &amp; impact",
+      process3_p: "Nous accompagnons la réalisation du projet dans la durée, avec un suivi rigoureux de sa performance et de son impact sur les territoires.",
+      insights_eyebrow: "Actualités &amp; perspectives", insights_h2: "Regards sur l'investissement en Afrique",
+      insights_lede: "Analyses et prises de position de nos équipes sur les tendances qui façonnent les marchés africains.",
+      insight_meta: "PERSPECTIVE",
+      insight1_h4: "Financement mixte : accélérer les infrastructures africaines",
+      insight1_p: "Comment combiner capital patient, dette concessionnelle et garanties pour débloquer des projets structurants.",
+      insight2_h4: "Agriculture : sécuriser les chaînes de valeur locales",
+      insight2_p: "Les leviers de financement pour transformer le potentiel agricole du continent en filières compétitives.",
+      insight3_h4: "Golfe–Afrique : un corridor de capital en construction",
+      insight3_p: "Pourquoi les fonds du Golfe jouent un rôle croissant dans le financement du développement africain.",
+      cta_h2: "Construisons ensemble le prochain projet structurant.",
+      cta_p: "Gouvernements, institutions ou entreprises : parlons de votre projet et de la manière dont nous pouvons le structurer et le financer.",
+      cta_btn_outline: "Retour en haut",
+      footer_desc: "Fonds d'investissement basé au Qatar, dédié au financement et à la structuration de projets de développement en Afrique.",
+      footer_sectors_h5: "Secteurs", footer_fund_h5: "Fonds", footer_fund_process: "Notre approche",
+      footer_contact_h5: "Contact", footer_location: "Lusail, Qatar",
+      footer_copy: "© 2026 Black Ventures Capital. Tous droits réservés.",
+      footer_tag: "Lusail, Qatar — au service du développement africain"
+    },
+    en: {
+      title: "Black Ventures Capital — Investment fund for Africa's development",
+      meta_desc: "Black Ventures Capital is a Qatar-based investment fund dedicated to financing and structuring development projects in Africa: energy, agriculture, infrastructure and innovative financial solutions.",
+      nav_about: "About", nav_sectors: "Sectors", nav_advisory: "Advisory &amp; Structuring",
+      nav_process: "Approach", nav_insights: "Insights", nav_contact: "Contact Us",
+      hero_img_alt: "Panoramic view of the Lusail, Qatar skyline at dusk",
+      hero_h1: "Qatari Fund,<br>African <em>Ambition</em>.",
+      hero_sub: "Black Ventures Capital structures and finances energy, agriculture and infrastructure projects that are building tomorrow's Africa — alongside governments and the private sector.",
+      hero_btn_primary: "Our investment sectors", hero_btn_outline: "Discuss a project",
+      stat1_p: "Strategic sectors: energy, agriculture, infrastructure, alternative financial solutions",
+      stat2_p: "Permanent mandates: supporting governments and structuring finance for the private sector",
+      stat3_num: "1<sup>st</sup>", stat3_p: "Qatari fund fully dedicated to development projects on the African continent",
+      stat4_p: "A lasting bridge between Gulf capital and Africa's development priorities",
+      about_eyebrow: "About", about_h2: "A Qatari fund, an African conviction",
+      about_p1: "Black Ventures Capital is an investment fund dedicated exclusively to development projects in Africa. We mobilise patient capital and structuring expertise to turn ambitious projects into concrete results.",
+      about_p2: "Our role doesn't stop at financing: we support governments in structuring their major infrastructure and public-service projects, and we help the private sector build sound, innovative financial arrangements suited to local realities.",
+      about_p3: "Our conviction is simple: Africa has the resources, the markets and the human capital needed for its transformation. What is often missing is a partner able to structure, finance and stay engaged over the long term.",
+      about_row_siege_label: "Headquarters", about_row_siege_val: "Qatar",
+      about_row_zone_label: "Area of operation", about_row_zone_val: "Africa",
+      about_row_clients_label: "Clients", about_row_clients_val: "Governments &amp; businesses",
+      about_row_approche_label: "Approach", about_row_approche_val: "Financing + structuring",
+      about_row_horizon_label: "Horizon", about_row_horizon_val: "Patient capital",
+      sectors_eyebrow: "Investment sectors",
+      sectors_h2: "Four sectors, one purpose: Africa's sustainable development",
+      sectors_lede: "Our teams structure tailor-made financing for projects that meet the continent's essential needs.",
+      sector1_idx: "01 — Energy", sector1_h3: "Energy",
+      sector1_p: "Power generation, transmission and access: conventional and renewable projects designed to secure the energy supply of territories.",
+      sector2_idx: "02 — Agriculture", sector2_h3: "Agriculture",
+      sector2_p: "Agricultural value chains, irrigation, processing and rural logistics, in service of food sovereignty and local employment.",
+      sector3_idx: "03 — Infrastructure", sector3_h3: "Infrastructure",
+      sector3_p: "Roads, ports, urban transport and public facilities: the physical foundations that growth and regional integration depend on.",
+      sector4_idx: "04 — Financial solutions", sector4_h3: "Alternative &amp; innovative financial solutions",
+      sector4_p: "Blended finance mechanisms, guarantees, Islamic finance and tailor-made instruments for projects with specific risk profiles.",
+      sector_tag: "View sector", footer_sector4: "Financial solutions",
+      advisory_eyebrow: "Advisory &amp; financial structuring",
+      advisory_h2: "A structuring partner, not just a source of funds",
+      advisory_lede: "We get involved upstream of financing, to build bankable projects and durable arrangements.",
+      advisory1_h4: "For governments",
+      advisory1_p: "Structuring public infrastructure projects, public-private partnership arrangements, support in mobilising international financing and dialogue with lenders.",
+      advisory2_h4: "For the private sector",
+      advisory2_p: "Financial structuring of industrial and agricultural projects, debt and equity arrangements, access to alternative financing instruments suited to each market.",
+      advisory3_h4: "Financial structuring",
+      advisory3_p: "Designing arrangements that combine capital, concessional debt and guarantees, to optimise the cost of capital and share risk among stakeholders.",
+      advisory4_h4: "Long-term support",
+      advisory4_p: "Implementation follow-up, project governance and impact reporting, from financial close through to operation.",
+      process_eyebrow: "Our approach", process_h2: "From idea to funded project",
+      process_lede: "A three-step method, applied to every project we support.",
+      process1_h4: "Diagnosis &amp; structuring",
+      process1_p: "We assess the technical, economic and financial feasibility of the project, and design an arrangement suited to its context and sponsors.",
+      process2_h4: "Capital mobilisation &amp; partnerships",
+      process2_p: "We commit our own resources and bring in complementary financial partners to secure the project's financial close.",
+      process3_h4: "Monitoring, governance &amp; impact",
+      process3_p: "We support the project's delivery over time, with rigorous monitoring of its performance and impact on the territories involved.",
+      insights_eyebrow: "Insights &amp; perspectives", insights_h2: "Perspectives on investing in Africa",
+      insights_lede: "Analysis and views from our teams on the trends shaping African markets.",
+      insight_meta: "PERSPECTIVE",
+      insight1_h4: "Blended finance: accelerating African infrastructure",
+      insight1_p: "How to combine patient capital, concessional debt and guarantees to unlock structuring projects.",
+      insight2_h4: "Agriculture: securing local value chains",
+      insight2_p: "The financing levers to turn the continent's agricultural potential into competitive industries.",
+      insight3_h4: "Gulf–Africa: a capital corridor under construction",
+      insight3_p: "Why Gulf funds are playing a growing role in financing Africa's development.",
+      cta_h2: "Let's build the next structuring project together.",
+      cta_p: "Governments, institutions or businesses: let's talk about your project and how we can structure and finance it.",
+      cta_btn_outline: "Back to top",
+      footer_desc: "Investment fund based in Qatar, dedicated to financing and structuring development projects in Africa.",
+      footer_sectors_h5: "Sectors", footer_fund_h5: "Fund", footer_fund_process: "Our approach",
+      footer_contact_h5: "Contact", footer_location: "Lusail, Qatar",
+      footer_copy: "© 2026 Black Ventures Capital. All rights reserved.",
+      footer_tag: "Lusail, Qatar — in service of Africa's development"
+    },
+    ar: {
+      title: "بلاك فنتشرز كابيتال — صندوق استثماري لتنمية أفريقيا",
+      meta_desc: "بلاك فنتشرز كابيتال صندوق استثماري مقره قطر، مكرّس لتمويل وهيكلة مشاريع التنمية في أفريقيا: الطاقة، الزراعة، البنية التحتية، والحلول المالية المبتكرة.",
+      nav_about: "من نحن", nav_sectors: "القطاعات", nav_advisory: "الاستشارة والهيكلة",
+      nav_process: "نهجنا", nav_insights: "الأخبار", nav_contact: "اتصل بنا",
+      hero_img_alt: "منظر بانورامي لأفق مدينة لوسيل، قطر، عند الغسق",
+      hero_h1: "صندوق قطري،<br>طموح <em>أفريقي</em>.",
+      hero_sub: "تعمل بلاك فنتشرز كابيتال على هيكلة وتمويل مشاريع الطاقة والزراعة والبنية التحتية التي تبني أفريقيا الغد، إلى جانب الحكومات والقطاع الخاص.",
+      hero_btn_primary: "قطاعات استثمارنا", hero_btn_outline: "ناقش مشروعًا",
+      stat1_p: "قطاعات استراتيجية: الطاقة، الزراعة، البنية التحتية، الحلول المالية البديلة",
+      stat2_p: "مهمتان دائمتان: دعم الحكومات والهيكلة المالية للقطاع الخاص",
+      stat3_num: "الأول", stat3_p: "أول صندوق قطري مكرّس بالكامل لمشاريع التنمية في القارة الأفريقية",
+      stat4_p: "جسر دائم بين رساميل الخليج وأولويات التنمية الأفريقية",
+      about_eyebrow: "من نحن", about_h2: "صندوق قطري، وقناعة أفريقية",
+      about_p1: "بلاك فنتشرز كابيتال صندوق استثماري مخصص حصريًا لمشاريع التنمية في أفريقيا. نحشد رأس مال صبورًا وخبرة في الهيكلة المالية لتحويل المشاريع الطموحة إلى إنجازات ملموسة.",
+      about_p2: "لا يقتصر دورنا على التمويل: فنحن ندعم الحكومات في هيكلة مشاريعها الكبرى للبنية التحتية والخدمات العامة، ونساند القطاع الخاص في بناء ترتيبات مالية متينة ومبتكرة تلائم الواقع المحلي.",
+      about_p3: "قناعتنا بسيطة: تملك أفريقيا الموارد والأسواق ورأس المال البشري اللازم لتحوّلها. وما ينقص غالبًا هو شريك قادر على الهيكلة والتمويل والمرافقة على المدى الطويل.",
+      about_row_siege_label: "المقر", about_row_siege_val: "قطر",
+      about_row_zone_label: "نطاق العمل", about_row_zone_val: "أفريقيا",
+      about_row_clients_label: "العملاء", about_row_clients_val: "الحكومات والشركات",
+      about_row_approche_label: "المنهج", about_row_approche_val: "التمويل + الهيكلة",
+      about_row_horizon_label: "الأفق الزمني", about_row_horizon_val: "رأس مال صبور",
+      sectors_eyebrow: "قطاعات الاستثمار",
+      sectors_h2: "أربعة قطاعات، وهدف واحد: التنمية المستدامة لأفريقيا",
+      sectors_lede: "تعمل فرقنا على هيكلة تمويلات مصممة خصيصًا للمشاريع التي تلبي الاحتياجات الأساسية للقارة.",
+      sector1_idx: "٠١ — الطاقة", sector1_h3: "الطاقة",
+      sector1_p: "إنتاج الطاقة ونقلها والوصول إليها: مشاريع تقليدية ومتجددة مصممة لتأمين الإمداد الطاقي للأقاليم.",
+      sector2_idx: "٠٢ — الزراعة", sector2_h3: "الزراعة",
+      sector2_p: "سلاسل القيمة الزراعية والري والتحويل واللوجستيك الريفي، في خدمة السيادة الغذائية والتشغيل المحلي.",
+      sector3_idx: "٠٣ — البنية التحتية", sector3_h3: "البنية التحتية",
+      sector3_p: "الطرق والموانئ والنقل الحضري والمرافق العامة: الأسس المادية التي يعتمد عليها النمو والتكامل الإقليمي.",
+      sector4_idx: "٠٤ — الحلول المالية", sector4_h3: "حلول مالية بديلة ومبتكرة",
+      sector4_p: "آليات التمويل المختلط والضمانات والتمويل الإسلامي وأدوات مصممة خصيصًا لمشاريع ذات ملامح مخاطر محددة.",
+      sector_tag: "عرض القطاع", footer_sector4: "الحلول المالية",
+      advisory_eyebrow: "الاستشارة والهيكلة المالية",
+      advisory_h2: "شريك في الهيكلة، لا مجرد ممول",
+      advisory_lede: "نتدخل في مرحلة مبكرة من التمويل، لبناء مشاريع قابلة للتمويل المصرفي وترتيبات مستدامة.",
+      advisory1_h4: "للحكومات",
+      advisory1_p: "هيكلة مشاريع البنية التحتية العامة، ترتيبات الشراكة بين القطاعين العام والخاص، ودعم حشد التمويل الدولي والحوار مع الجهات المانحة.",
+      advisory2_h4: "للقطاع الخاص",
+      advisory2_p: "الهيكلة المالية للمشاريع الصناعية والزراعية، وترتيبات الديون وحقوق الملكية، والوصول إلى أدوات تمويل بديلة تلائم كل سوق.",
+      advisory3_h4: "الهيكلة المالية",
+      advisory3_p: "تصميم ترتيبات تجمع بين رأس المال والديون الميسّرة والضمانات، لتحسين تكلفة رأس المال وتوزيع المخاطر بين الأطراف المعنية.",
+      advisory4_h4: "مرافقة طويلة الأمد",
+      advisory4_p: "متابعة التنفيذ وحوكمة المشروع والإبلاغ عن الأثر، من الإغلاق المالي وحتى مرحلة التشغيل.",
+      process_eyebrow: "نهجنا", process_h2: "من الفكرة إلى المشروع الممول",
+      process_lede: "منهجية من ثلاث مراحل، تُطبَّق على كل مشروع نرافقه.",
+      process1_h4: "التشخيص والهيكلة",
+      process1_p: "نقيّم الجدوى التقنية والاقتصادية والمالية للمشروع، ونصمم ترتيبًا يلائم سياقه والجهات القائمة عليه.",
+      process2_h4: "حشد رأس المال والشراكات",
+      process2_p: "نلتزم بمواردنا الخاصة ونحشد شركاء ماليين مكمّلين لتأمين الإغلاق المالي للمشروع.",
+      process3_h4: "المتابعة والحوكمة والأثر",
+      process3_p: "نرافق تنفيذ المشروع على المدى الطويل، مع متابعة دقيقة لأدائه وأثره على الأقاليم المعنية.",
+      insights_eyebrow: "الأخبار والرؤى", insights_h2: "رؤى حول الاستثمار في أفريقيا",
+      insights_lede: "تحليلات ووجهات نظر فرقنا حول الاتجاهات التي تُشكّل الأسواق الأفريقية.",
+      insight_meta: "رؤية",
+      insight1_h4: "التمويل المختلط: تسريع البنية التحتية الأفريقية",
+      insight1_p: "كيف يمكن الجمع بين رأس المال الصبور والديون الميسّرة والضمانات لإطلاق مشاريع هيكلية.",
+      insight2_h4: "الزراعة: تأمين سلاسل القيمة المحلية",
+      insight2_p: "روافع التمويل لتحويل الإمكانات الزراعية للقارة إلى قطاعات تنافسية.",
+      insight3_h4: "الخليج وأفريقيا: ممر رأسمالي قيد الإنشاء",
+      insight3_p: "لماذا تلعب صناديق الخليج دورًا متزايدًا في تمويل التنمية الأفريقية.",
+      cta_h2: "لنبنِ معًا المشروع الهيكلي القادم.",
+      cta_p: "حكومات، مؤسسات أو شركات: لنتحدث عن مشروعكم وكيف يمكننا هيكلته وتمويله.",
+      cta_btn_outline: "العودة إلى الأعلى",
+      footer_desc: "صندوق استثماري مقره قطر، مكرّس لتمويل وهيكلة مشاريع التنمية في أفريقيا.",
+      footer_sectors_h5: "القطاعات", footer_fund_h5: "الصندوق", footer_fund_process: "نهجنا",
+      footer_contact_h5: "تواصل معنا", footer_location: "لوسيل، قطر",
+      footer_copy: "© 2026 بلاك فنتشرز كابيتال. جميع الحقوق محفوظة.",
+      footer_tag: "لوسيل، قطر — في خدمة التنمية الأفريقية"
+    }
+  };
+
+  function applyLanguage(lang){
+    const dict = translations[lang] || translations.fr;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    document.title = dict.title;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if(metaDesc) metaDesc.setAttribute('content', dict.meta_desc);
+
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const key = el.getAttribute('data-i18n');
+      if(dict[key] !== undefined){ el.innerHTML = dict[key]; }
+    });
+    document.querySelectorAll('[data-i18n-alt]').forEach(el=>{
+      const key = el.getAttribute('data-i18n-alt');
+      if(dict[key] !== undefined){ el.setAttribute('alt', dict[key]); }
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn=>{
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=> applyLanguage(btn.getAttribute('data-lang')));
+  });
+</script>
+
+</body>
+</html>
