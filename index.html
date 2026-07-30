@@ -69,25 +69,25 @@
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line-inv);
   }
-  .nav-inner{ display:flex; align-items:center; justify-content:space-between; }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:20px; }
   .brand{
     display:flex; align-items:center; gap:10px;
     font-family:'Fraunces', serif; font-weight:500; font-size:19px;
-    color:#fff; letter-spacing:-0.01em;
+    color:#fff; letter-spacing:-0.01em; white-space:nowrap; flex:none;
   }
-  nav.links{ display:flex; align-items:center; gap:34px; }
+  nav.links{ display:flex; align-items:center; gap:22px; flex-wrap:nowrap; }
   nav.links a{
-    color:rgba(250,247,241,0.82); font-size:14px; font-weight:400;
-    position:relative; padding:4px 0;
+    color:rgba(250,247,241,0.82); font-size:13.5px; font-weight:400;
+    position:relative; padding:4px 0; white-space:nowrap;
   }
   nav.links a:hover{ color:#fff; }
   nav.links a.cta{
     color:var(--ink); background:var(--ochre);
-    padding:10px 20px; border-radius:2px; font-weight:500;
+    padding:10px 18px; border-radius:2px; font-weight:500;
   }
   nav.links a.cta:hover{ background:#d99a3c; }
   .nav-toggle{ display:none; }
-  @media (max-width:880px){
+  @media (max-width:1080px){
     nav.links{ display:none; }
   }
 
@@ -385,12 +385,62 @@
 
   /* ---------- INSIGHTS ---------- */
   .insights{ background:var(--paper); }
-  .insight-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:34px; }
+  .insight-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:34px; }
   .insight-card{ border-top:1px solid var(--line); padding-top:22px; }
   .insight-card .meta{ font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--maroon); letter-spacing:0.05em; }
   .insight-card h4{ font-size:19px; font-weight:500; margin-top:14px; max-width:26ch; }
   .insight-card p{ font-size:14px; color:var(--ink-soft); margin-top:12px; }
   @media (max-width:880px){ .insight-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- FORECASTS ---------- */
+  .forecasts{ background:var(--sand); }
+  .forecast-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line);
+  }
+  .forecast-card{
+    background:var(--paper); padding:36px 28px 32px;
+    display:flex; flex-direction:column; gap:8px;
+    border-top:3px solid var(--ochre);
+  }
+  .forecast-metric{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:400;
+    font-size:46px; color:var(--maroon); line-height:1;
+  }
+  .forecast-horizon{
+    font-family:'IBM Plex Mono', monospace; font-size:11px;
+    letter-spacing:0.08em; text-transform:uppercase; color:var(--ochre);
+  }
+  .forecast-card h4{ font-size:18px; font-weight:500; margin-top:6px; }
+  .forecast-card p{ font-size:14px; color:var(--ink-soft); }
+  .forecast-note{
+    margin-top:28px; font-size:12.5px; color:var(--ink-soft);
+    font-style:italic;
+  }
+  @media (max-width:880px){ .forecast-grid{ grid-template-columns:1fr; } }
+
+  .envelope-block{ margin-top:64px; border-top:1px solid var(--line); padding-top:44px; }
+  .envelope-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:24px; flex-wrap:wrap; margin-bottom:6px;
+  }
+  .envelope-head h3{ font-family:'Fraunces', serif; font-size:24px; font-weight:500; }
+  .envelope-total{
+    font-family:'IBM Plex Mono', monospace; font-size:13px;
+    color:var(--maroon); white-space:nowrap;
+  }
+  .envelope-sectors{ font-size:13.5px; color:var(--ink-soft); margin-bottom:26px; max-width:70ch; }
+  .envelope-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(190px, 1fr)); gap:1px;
+    background:var(--line); border:1px solid var(--line);
+  }
+  .envelope-card{ background:var(--paper); padding:24px 22px; }
+  .envelope-card .country{ font-family:'Fraunces', serif; font-style:italic; font-size:18px; }
+  .envelope-card .amount{ font-family:'Fraunces', serif; font-size:30px; color:var(--maroon); margin-top:8px; }
+  .envelope-card .amount-label{
+    font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.06em;
+    text-transform:uppercase; color:var(--ochre); margin-top:4px;
+  }
 
   /* ---------- CTA ---------- */
   .cta-band{
@@ -442,6 +492,7 @@
       <a href="#advisory" data-i18n="nav_advisory">Conseil &amp; Structuration</a>
       <a href="#process" data-i18n="nav_process">Approche</a>
       <a href="#insights" data-i18n="nav_insights">Actualités</a>
+      <a href="#forecasts" data-i18n="nav_forecasts">Prévisions</a>
       <a href="#contact" class="cta" data-i18n="nav_contact">Nous contacter</a>
       <div class="lang-switch" role="group" aria-label="Choisir la langue / Choose language / اختر اللغة">
         <button type="button" class="lang-btn active" data-lang="fr">FR</button>
@@ -653,9 +704,87 @@
         <p data-i18n="insight2_p">Les leviers de financement pour transformer le potentiel agricole du continent en filières compétitives.</p>
       </div>
       <div class="insight-card reveal">
-        <div class="meta" data-i18n="insight_meta">PERSPECTIVE</div>
+        <div class="meta" data-i18n="insight3_meta">PERSPECTIVE</div>
         <h4 data-i18n="insight3_h4">Golfe–Afrique : un corridor de capital en construction</h4>
         <p data-i18n="insight3_p">Pourquoi les fonds du Golfe jouent un rôle croissant dans le financement du développement africain.</p>
+      </div>
+      <div class="insight-card reveal">
+        <div class="meta" data-i18n="insight4_meta">ACTUALITÉ</div>
+        <h4 data-i18n="insight4_h4">Qatar–Afrique : une offensive d'investissement à 300 milliards de dollars</h4>
+        <p data-i18n="insight4_p">Une délégation qatarie conduite par Cheikh Al Mansour Al Thani a engagé plus de 100 milliards de dollars d'annonces dans dix pays d'Afrique centrale et australe, misant sur les métaux critiques, la médiation politique et la logistique aérienne pour s'imposer comme partenaire de long terme du continent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="forecasts" id="forecasts">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow" data-i18n="forecasts_eyebrow">Prévisions d'investissement</div>
+        <h2 data-i18n="forecasts_h2">Là où nous voyons la prochaine vague de croissance</h2>
+      </div>
+      <p class="lede" data-i18n="forecasts_lede">Nos estimations sectorielles, mises à jour régulièrement par nos équipes d'analyse.</p>
+    </div>
+    <div class="forecast-grid">
+      <div class="forecast-card reveal">
+        <span class="forecast-metric">+12%</span>
+        <span class="forecast-horizon" data-i18n="forecast1_horizon">Horizon 2027</span>
+        <h4 data-i18n="forecast1_h4">Énergie renouvelable en Afrique de l'Ouest</h4>
+        <p data-i18n="forecast1_p">Croissance annuelle moyenne attendue des capacités solaires et éoliennes raccordées au réseau.</p>
+      </div>
+      <div class="forecast-card reveal">
+        <span class="forecast-metric">×2</span>
+        <span class="forecast-horizon" data-i18n="forecast2_horizon">Horizon 2030</span>
+        <h4 data-i18n="forecast2_h4">Financement mixte des infrastructures</h4>
+        <p data-i18n="forecast2_p">Doublement attendu des montages combinant capitaux privés, garanties publiques et dette concessionnelle.</p>
+      </div>
+      <div class="forecast-card reveal">
+        <span class="forecast-metric">+8%</span>
+        <span class="forecast-horizon" data-i18n="forecast3_horizon">Horizon 2028</span>
+        <h4 data-i18n="forecast3_h4">Chaînes de valeur agroalimentaires</h4>
+        <p data-i18n="forecast3_p">Progression annuelle anticipée des investissements dans la transformation et la logistique agricoles.</p>
+      </div>
+    </div>
+    <p class="forecast-note" data-i18n="forecast_note">Estimations internes à titre indicatif, sujettes à révision selon l'évolution des marchés.</p>
+
+    <div class="envelope-block">
+      <div class="envelope-head">
+        <h3 data-i18n="envelope_h3">Enveloppe 2027 par pays</h3>
+        <span class="envelope-total" data-i18n="envelope_total">1,05 Md$ engagés au total</span>
+      </div>
+      <p class="envelope-sectors" data-i18n="envelope_sectors_label">Secteurs ciblés : Énergie · Infrastructures · Agriculture · Redressement &amp; structuration budgétaire.</p>
+      <div class="envelope-grid">
+        <div class="envelope-card reveal">
+          <div class="country" data-i18n="envelope1_country">Gabon</div>
+          <div class="amount">250 M$</div>
+          <div class="amount-label" data-i18n="envelope_label">Enveloppe 2027</div>
+        </div>
+        <div class="envelope-card reveal">
+          <div class="country" data-i18n="envelope2_country">Cameroun</div>
+          <div class="amount">300 M$</div>
+          <div class="amount-label" data-i18n="envelope_label">Enveloppe 2027</div>
+        </div>
+        <div class="envelope-card reveal">
+          <div class="country" data-i18n="envelope3_country">Guinée</div>
+          <div class="amount">150 M$</div>
+          <div class="amount-label" data-i18n="envelope_label">Enveloppe 2027</div>
+        </div>
+        <div class="envelope-card reveal">
+          <div class="country" data-i18n="envelope4_country">Rwanda</div>
+          <div class="amount">150 M$</div>
+          <div class="amount-label" data-i18n="envelope_label">Enveloppe 2027</div>
+        </div>
+        <div class="envelope-card reveal">
+          <div class="country" data-i18n="envelope5_country">Bénin</div>
+          <div class="amount">100 M$</div>
+          <div class="amount-label" data-i18n="envelope_label">Enveloppe 2027</div>
+        </div>
+        <div class="envelope-card reveal">
+          <div class="country" data-i18n="envelope6_country">Burkina Faso</div>
+          <div class="amount">100 M$</div>
+          <div class="amount-label" data-i18n="envelope_label">Enveloppe 2027</div>
+        </div>
       </div>
     </div>
   </div>
@@ -692,6 +821,7 @@
         <a href="#advisory" data-i18n="nav_advisory">Conseil &amp; structuration</a>
         <a href="#process" data-i18n="footer_fund_process">Notre approche</a>
         <a href="#insights" data-i18n="nav_insights">Actualités</a>
+        <a href="#forecasts" data-i18n="nav_forecasts">Prévisions</a>
       </div>
       <div class="footer-col">
         <h5 data-i18n="footer_contact_h5">Contact</h5>
@@ -727,7 +857,7 @@
       title: "Black Ventures Capital — Fonds d'investissement pour le développement en Afrique",
       meta_desc: "Black Ventures Capital est un fonds d'investissement basé au Qatar, dédié au financement et à la structuration de projets de développement en Afrique : énergie, agriculture, infrastructures et solutions financières innovantes.",
       nav_about: "À propos", nav_sectors: "Secteurs", nav_advisory: "Conseil &amp; Structuration",
-      nav_process: "Approche", nav_insights: "Actualités", nav_contact: "Nous contacter",
+      nav_process: "Approche", nav_insights: "Actualités", nav_forecasts: "Prévisions", nav_contact: "Nous contacter",
       hero_img_alt: "Vue panoramique de la skyline de Lusail, Qatar, au crépuscule",
       hero_h1: "Fond Qatari,<br>Ambition <em>Africaine</em>.",
       hero_sub: "Black Ventures Capital structure et finance les projets d'énergie, d'agriculture et d'infrastructures qui construisent l'Afrique de demain — aux côtés des gouvernements et du secteur privé.",
@@ -785,6 +915,26 @@
       insight2_p: "Les leviers de financement pour transformer le potentiel agricole du continent en filières compétitives.",
       insight3_h4: "Golfe–Afrique : un corridor de capital en construction",
       insight3_p: "Pourquoi les fonds du Golfe jouent un rôle croissant dans le financement du développement africain.",
+      insight3_meta: "PERSPECTIVE",
+      insight4_meta: "ACTUALITÉ",
+      insight4_h4: "Qatar–Afrique : une offensive d'investissement à 300 milliards de dollars",
+      insight4_p: "Une délégation qatarie conduite par Cheikh Al Mansour Al Thani a engagé plus de 100 milliards de dollars d'annonces dans dix pays d'Afrique centrale et australe, misant sur les métaux critiques, la médiation politique et la logistique aérienne pour s'imposer comme partenaire de long terme du continent.",
+      forecasts_eyebrow: "Prévisions d'investissement",
+      forecasts_h2: "Là où nous voyons la prochaine vague de croissance",
+      forecasts_lede: "Nos estimations sectorielles, mises à jour régulièrement par nos équipes d'analyse.",
+      forecast1_horizon: "Horizon 2027", forecast1_h4: "Énergie renouvelable en Afrique de l'Ouest",
+      forecast1_p: "Croissance annuelle moyenne attendue des capacités solaires et éoliennes raccordées au réseau.",
+      forecast2_horizon: "Horizon 2030", forecast2_h4: "Financement mixte des infrastructures",
+      forecast2_p: "Doublement attendu des montages combinant capitaux privés, garanties publiques et dette concessionnelle.",
+      forecast3_horizon: "Horizon 2028", forecast3_h4: "Chaînes de valeur agroalimentaires",
+      forecast3_p: "Progression annuelle anticipée des investissements dans la transformation et la logistique agricoles.",
+      forecast_note: "Estimations internes à titre indicatif, sujettes à révision selon l'évolution des marchés.",
+      envelope_h3: "Enveloppe 2027 par pays",
+      envelope_total: "1,05 Md$ engagés au total",
+      envelope_sectors_label: "Secteurs ciblés : Énergie · Infrastructures · Agriculture · Redressement &amp; structuration budgétaire.",
+      envelope_label: "Enveloppe 2027",
+      envelope1_country: "Gabon", envelope2_country: "Cameroun", envelope3_country: "Guinée",
+      envelope4_country: "Rwanda", envelope5_country: "Bénin", envelope6_country: "Burkina Faso",
       cta_h2: "Construisons ensemble le prochain projet structurant.",
       cta_p: "Gouvernements, institutions ou entreprises : parlons de votre projet et de la manière dont nous pouvons le structurer et le financer.",
       cta_btn_outline: "Retour en haut",
@@ -798,7 +948,7 @@
       title: "Black Ventures Capital — Investment fund for Africa's development",
       meta_desc: "Black Ventures Capital is a Qatar-based investment fund dedicated to financing and structuring development projects in Africa: energy, agriculture, infrastructure and innovative financial solutions.",
       nav_about: "About", nav_sectors: "Sectors", nav_advisory: "Advisory &amp; Structuring",
-      nav_process: "Approach", nav_insights: "Insights", nav_contact: "Contact Us",
+      nav_process: "Approach", nav_insights: "Insights", nav_forecasts: "Forecasts", nav_contact: "Contact Us",
       hero_img_alt: "Panoramic view of the Lusail, Qatar skyline at dusk",
       hero_h1: "Qatari Fund,<br>African <em>Ambition</em>.",
       hero_sub: "Black Ventures Capital structures and finances energy, agriculture and infrastructure projects that are building tomorrow's Africa — alongside governments and the private sector.",
@@ -856,6 +1006,26 @@
       insight2_p: "The financing levers to turn the continent's agricultural potential into competitive industries.",
       insight3_h4: "Gulf–Africa: a capital corridor under construction",
       insight3_p: "Why Gulf funds are playing a growing role in financing Africa's development.",
+      insight3_meta: "PERSPECTIVE",
+      insight4_meta: "NEWS",
+      insight4_h4: "Qatar–Africa: a $300 billion investment offensive",
+      insight4_p: "A Qatari delegation led by Sheikh Al Mansour Al Thani has pledged over $100 billion across ten Central and Southern African countries, betting on critical minerals, political mediation and aviation logistics to become a long-term partner for the continent.",
+      forecasts_eyebrow: "Investment forecasts",
+      forecasts_h2: "Where we see the next wave of growth",
+      forecasts_lede: "Our sector estimates, updated regularly by our analysis teams.",
+      forecast1_horizon: "Horizon 2027", forecast1_h4: "Renewable energy in West Africa",
+      forecast1_p: "Expected average annual growth in grid-connected solar and wind capacity.",
+      forecast2_horizon: "Horizon 2030", forecast2_h4: "Blended infrastructure finance",
+      forecast2_p: "Expected doubling of arrangements combining private capital, public guarantees and concessional debt.",
+      forecast3_horizon: "Horizon 2028", forecast3_h4: "Agrifood value chains",
+      forecast3_p: "Anticipated annual growth in investment in agricultural processing and logistics.",
+      forecast_note: "Internal estimates for indicative purposes, subject to revision as markets evolve.",
+      envelope_h3: "2027 country envelope",
+      envelope_total: "$1.05Bn committed in total",
+      envelope_sectors_label: "Targeted sectors: Energy · Infrastructure · Agriculture · Fiscal recovery &amp; structuring.",
+      envelope_label: "2027 envelope",
+      envelope1_country: "Gabon", envelope2_country: "Cameroon", envelope3_country: "Guinea",
+      envelope4_country: "Rwanda", envelope5_country: "Benin", envelope6_country: "Burkina Faso",
       cta_h2: "Let's build the next structuring project together.",
       cta_p: "Governments, institutions or businesses: let's talk about your project and how we can structure and finance it.",
       cta_btn_outline: "Back to top",
@@ -869,7 +1039,7 @@
       title: "بلاك فنتشرز كابيتال — صندوق استثماري لتنمية أفريقيا",
       meta_desc: "بلاك فنتشرز كابيتال صندوق استثماري مقره قطر، مكرّس لتمويل وهيكلة مشاريع التنمية في أفريقيا: الطاقة، الزراعة، البنية التحتية، والحلول المالية المبتكرة.",
       nav_about: "من نحن", nav_sectors: "القطاعات", nav_advisory: "الاستشارة والهيكلة",
-      nav_process: "نهجنا", nav_insights: "الأخبار", nav_contact: "اتصل بنا",
+      nav_process: "نهجنا", nav_insights: "الأخبار", nav_forecasts: "التوقعات", nav_contact: "اتصل بنا",
       hero_img_alt: "منظر بانورامي لأفق مدينة لوسيل، قطر، عند الغسق",
       hero_h1: "صندوق قطري،<br>طموح <em>أفريقي</em>.",
       hero_sub: "تعمل بلاك فنتشرز كابيتال على هيكلة وتمويل مشاريع الطاقة والزراعة والبنية التحتية التي تبني أفريقيا الغد، إلى جانب الحكومات والقطاع الخاص.",
@@ -927,6 +1097,26 @@
       insight2_p: "روافع التمويل لتحويل الإمكانات الزراعية للقارة إلى قطاعات تنافسية.",
       insight3_h4: "الخليج وأفريقيا: ممر رأسمالي قيد الإنشاء",
       insight3_p: "لماذا تلعب صناديق الخليج دورًا متزايدًا في تمويل التنمية الأفريقية.",
+      insight3_meta: "رؤية",
+      insight4_meta: "خبر",
+      insight4_h4: "قطر وأفريقيا: عرض استثماري بقيمة 300 مليار دولار",
+      insight4_p: "تعهد وفد قطري بقيادة الشيخ المنصور آل ثاني بأكثر من 100 مليار دولار في عشر دول بوسط أفريقيا وجنوبها، مراهنًا على المعادن الحرجة والوساطة السياسية ولوجستيات الطيران ليصبح شريكًا طويل الأمد للقارة.",
+      forecasts_eyebrow: "توقعات الاستثمار",
+      forecasts_h2: "أين نرى الموجة القادمة من النمو",
+      forecasts_lede: "تقديراتنا القطاعية، محدَّثة بانتظام من قبل فرق التحليل لدينا.",
+      forecast1_horizon: "أفق ٢٠٢٧", forecast1_h4: "الطاقة المتجددة في غرب أفريقيا",
+      forecast1_p: "متوسط النمو السنوي المتوقع لقدرات الطاقة الشمسية وطاقة الرياح المتصلة بالشبكة.",
+      forecast2_horizon: "أفق ٢٠٣٠", forecast2_h4: "التمويل المختلط للبنية التحتية",
+      forecast2_p: "مضاعفة متوقعة للترتيبات التي تجمع بين رأس المال الخاص والضمانات العامة والديون الميسّرة.",
+      forecast3_horizon: "أفق ٢٠٢٨", forecast3_h4: "سلاسل القيمة الزراعية الغذائية",
+      forecast3_p: "نمو سنوي متوقع للاستثمار في التصنيع الزراعي والخدمات اللوجستية.",
+      forecast_note: "تقديرات داخلية لأغراض إرشادية، قابلة للمراجعة وفق تطور الأسواق.",
+      envelope_h3: "مخصصات 2027 حسب الدولة",
+      envelope_total: "1.05 مليار دولار ملتزم بها إجمالًا",
+      envelope_sectors_label: "القطاعات المستهدفة: الطاقة · البنية التحتية · الزراعة · الإصلاح والهيكلة المالية.",
+      envelope_label: "مخصصات 2027",
+      envelope1_country: "الغابون", envelope2_country: "الكاميرون", envelope3_country: "غينيا",
+      envelope4_country: "رواندا", envelope5_country: "بنين", envelope6_country: "بوركينا فاسو",
       cta_h2: "لنبنِ معًا المشروع الهيكلي القادم.",
       cta_p: "حكومات، مؤسسات أو شركات: لنتحدث عن مشروعكم وكيف يمكننا هيكلته وتمويله.",
       cta_btn_outline: "العودة إلى الأعلى",
