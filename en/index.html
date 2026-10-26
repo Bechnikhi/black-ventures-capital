@@ -56,7 +56,8 @@
   },
   "areaServed": "Africa",
   "email": "info@blackventurescapital.com",
-  "sameAs": ["https://www.linkedin.com/company/blackventurescapital","https://web.facebook.com/profile.php?id=61593026901126"],
+  "sameAs": ["https://www.linkedin.com/company/blackventurescapital","https://web.facebook.com/profile.php?id=61593026901126",
+    "https://www.crunchbase.com/organization/black-ventures-capital"],
   "inLanguage": "en"
 }
 </script>
@@ -888,6 +889,7 @@
         <a href="/en/#top">Lusail, Qatar</a>
         <a href="https://www.linkedin.com/company/blackventurescapital" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://web.facebook.com/profile.php?id=61593026901126" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.crunchbase.com/organization/black-ventures-capital" target="_blank" rel="noopener">Crunchbase</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -907,11 +909,4 @@
   // Reveal on scroll
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
-      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, { threshold:0.15 });
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-  </script>
-</body>
-</html>
+      if(e.isInter
