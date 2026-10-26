@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__bvc)document.documentElement.classList.remove('js')},3500);</script>
+<script src="/app.js" defer></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8WFGMPNWP"></script>
 <script>
@@ -533,8 +535,9 @@
   @media (max-width:560px){ .footer-grid{ grid-template-columns:1fr; } }
 
   /* reveal on scroll */
-  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
-  .reveal.in{ opacity:1; transform:translateY(0); }
+  html.js .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  html.js .reveal.in{ opacity:1; transform:translateY(0); }
+  html:not(.js) header.site-nav{ background:rgba(20,23,26,.96); }
   .lang-btn{text-decoration:none;display:inline-block}
   .links .lang-switch{display:inline-flex;align-items:center;gap:2px}
   .links .lang-btn{padding:6px 11px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.04em;color:rgba(250,247,241,.65);line-height:1.2}
@@ -899,14 +902,16 @@
   </div>
 </footer>
 
-<script>
-  // Nav shrink on scroll
-  const nav = document.getElementById('siteNav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive:true });
 
-  // Reveal on scroll
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isInter
+</body>
+</html>
+
+<!-- fin du document -->
+<!-- ------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------ -->
