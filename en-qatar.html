@@ -63,17 +63,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#14171A;
-    --ink-soft:#2A2C2E;
-    --sand:#F3EEE4;
-    --sand-deep:#E8E0D0;
-    --maroon:#7C1B33;
-    --maroon-deep:#5A1225;
-    --ochre:#C68A2E;
-    --teal:#0E3B37;
-    --paper:#FAF7F1;
-    --line: rgba(20,23,26,0.12);
-    --line-inv: rgba(250,247,241,0.18);
+    --ink:#0B2545;
+    --ink-soft:#12335F;
+    --sand:#F2F5F9;
+    --sand-deep:#DCE5F0;
+    --maroon:#1B4B82;
+    --maroon-deep:#0B2545;
+    --ochre:#C9A24B;
+    --teal:#071A33;
+    --paper:#F8FAFC;
+    --line: rgba(11,37,69,0.12);
+    --line-inv: rgba(248,250,252,0.18);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
@@ -118,7 +118,7 @@
   }
   header.site-nav.scrolled{
     padding:14px 0;
-    background:rgba(20,23,26,0.92);
+    background:rgba(11,37,69,0.92);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line-inv);
   }
@@ -130,7 +130,7 @@
   }
   nav.links{ display:flex; align-items:center; gap:22px; flex-wrap:nowrap; }
   nav.links a{
-    color:rgba(250,247,241,0.82); font-size:13.5px; font-weight:400;
+    color:rgba(248,250,252,0.82); font-size:13.5px; font-weight:400;
     position:relative; padding:4px 0; white-space:nowrap;
   }
   nav.links a:hover{ color:#fff; }
@@ -138,7 +138,7 @@
     color:var(--ink); background:var(--ochre);
     padding:10px 18px; border-radius:2px; font-weight:500;
   }
-  nav.links a.cta:hover{ background:#d99a3c; }
+  nav.links a.cta:hover{ background:#E6C06A; }
   .nav-toggle{ display:none; }
   @media (max-width:1080px){
     nav.links{ display:none; }
@@ -147,13 +147,13 @@
   /* ---------- LANGUAGE SWITCH ---------- */
   .lang-switch{
     display:flex; align-items:center; gap:2px;
-    border:1px solid rgba(250,247,241,0.3); border-radius:20px;
+    border:1px solid rgba(248,250,252,0.3); border-radius:20px;
     padding:3px; margin-left:8px;
   }
   html[dir="rtl"] .lang-switch{ margin-left:0; margin-right:8px; }
   .lang-btn{
     font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.04em;
-    color:rgba(250,247,241,0.65); background:transparent; border:none;
+    color:rgba(248,250,252,0.65); background:transparent; border:none;
     padding:6px 11px; border-radius:16px; cursor:pointer;
     transition:background .2s ease, color .2s ease;
   }
@@ -195,8 +195,8 @@
   .hero-media::after{
     content:""; position:absolute; inset:0;
     background:
-      linear-gradient(180deg, rgba(20,16,14,0.35) 0%, rgba(20,16,14,0.02) 26%, rgba(20,16,14,0.28) 58%, rgba(20,16,14,0.95) 100%),
-      linear-gradient(100deg, rgba(20,16,14,0.6) 0%, rgba(20,16,14,0.08) 40%, rgba(20,16,14,0) 60%);
+      linear-gradient(180deg, rgba(7,26,51,0.35) 0%, rgba(7,26,51,0.02) 26%, rgba(7,26,51,0.28) 58%, rgba(7,26,51,0.95) 100%),
+      linear-gradient(100deg, rgba(7,26,51,0.6) 0%, rgba(7,26,51,0.08) 40%, rgba(7,26,51,0) 60%);
   }
   .hero-content{
     position:relative; z-index:2; width:100%;
@@ -211,7 +211,7 @@
   }
   .hero h1 em{ font-style:italic; color:var(--ochre); font-weight:400; }
   .hero-sub{
-    color:rgba(250,247,241,0.86); font-size:17px; max-width:46ch;
+    color:rgba(248,250,252,0.86); font-size:17px; max-width:46ch;
     margin-top:26px; font-weight:300;
   }
   .hero-actions{ display:flex; gap:16px; margin-top:38px; flex-wrap:wrap; }
@@ -223,13 +223,13 @@
     font-family:'Inter', sans-serif;
   }
   .btn-primary{ background:var(--ochre); color:var(--ink); }
-  .btn-primary:hover{ background:#d99a3c; transform:translateY(-1px); }
-  .btn-outline{ border-color:rgba(250,247,241,0.4); color:#fff; }
-  .btn-outline:hover{ border-color:#fff; background:rgba(250,247,241,0.08); }
+  .btn-primary:hover{ background:#E6C06A; transform:translateY(-1px); }
+  .btn-outline{ border-color:rgba(248,250,252,0.4); color:#fff; }
+  .btn-outline:hover{ border-color:#fff; background:rgba(248,250,252,0.08); }
   .hero-caption{
     position:absolute; right:32px; bottom:28px; z-index:2;
     font-family:'IBM Plex Mono', monospace; font-size:11px;
-    color:rgba(250,247,241,0.55); letter-spacing:0.04em;
+    color:rgba(248,250,252,0.55); letter-spacing:0.04em;
   }
 
   /* ---------- CORRIDOR SIGNATURE DIVIDER ---------- */
@@ -241,7 +241,7 @@
   .corridor-label{
     display:flex; justify-content:space-between; margin-top:10px;
     font-family:'IBM Plex Mono', monospace; font-size:10.5px;
-    color:rgba(250,247,241,0.5); letter-spacing:0.04em;
+    color:rgba(248,250,252,0.5); letter-spacing:0.04em;
     flex-wrap:wrap; row-gap:6px;
   }
   .corridor-label span{ white-space:nowrap; }
@@ -274,7 +274,7 @@
   }
   .stat .num sup{ font-size:0.4em; top:-0.9em; }
   .stat p{
-    margin-top:10px; font-size:13.5px; color:rgba(250,247,241,0.68);
+    margin-top:10px; font-size:13.5px; color:rgba(248,250,252,0.68);
     max-width:26ch; padding-bottom:8px;
   }
   @media (max-width:880px){
@@ -345,41 +345,41 @@
   .theme-energy::before{
     inset:-30%;
     background:repeating-conic-gradient(from 0deg at 82% 18%,
-      rgba(198,138,46,0.20) 0deg 2.4deg, transparent 2.4deg 13deg);
+      rgba(201,162,75,0.20) 0deg 2.4deg, transparent 2.4deg 13deg);
     animation:bvc-spin 46s linear infinite;
   }
   .theme-energy::after{
     inset:0;
-    background:radial-gradient(circle at 82% 18%, rgba(198,138,46,0.22), transparent 46%);
+    background:radial-gradient(circle at 82% 18%, rgba(201,162,75,0.22), transparent 46%);
     animation:bvc-pulse 4s ease-in-out infinite;
   }
   /* Agriculture — sillons animés */
   .theme-agri::before{
     inset:-10% -10%;
-    background-image:repeating-linear-gradient(178deg, rgba(14,59,55,0.14) 0 2px, transparent 2px 26px);
+    background-image:repeating-linear-gradient(178deg, rgba(18,51,95,0.14) 0 2px, transparent 2px 26px);
     animation:bvc-drift-y 9s linear infinite;
   }
   /* Infrastructures — grille bleu-print + balayage diagonal */
   .theme-infra::before{
     inset:0;
     background-image:
-      repeating-linear-gradient(0deg, rgba(124,27,51,0.10) 0 1px, transparent 1px 28px),
-      repeating-linear-gradient(90deg, rgba(124,27,51,0.10) 0 1px, transparent 1px 28px);
+      repeating-linear-gradient(0deg, rgba(27,75,130,0.10) 0 1px, transparent 1px 28px),
+      repeating-linear-gradient(90deg, rgba(27,75,130,0.10) 0 1px, transparent 1px 28px);
   }
   .theme-infra::after{
     inset:-20%;
-    background:linear-gradient(115deg, transparent 42%, rgba(198,138,46,0.20) 50%, transparent 58%);
+    background:linear-gradient(115deg, transparent 42%, rgba(201,162,75,0.20) 50%, transparent 58%);
     background-size:220% 220%;
     animation:bvc-sweep 7s ease-in-out infinite;
   }
   /* Solutions financières — lignes de croissance + ticker */
   .theme-finance::before{
     inset:0;
-    background-image:repeating-linear-gradient(115deg, rgba(198,138,46,0.16) 0 2px, transparent 2px 24px);
+    background-image:repeating-linear-gradient(115deg, rgba(201,162,75,0.16) 0 2px, transparent 2px 24px);
   }
   .theme-finance::after{
     left:6%; right:6%; height:1px; top:34%;
-    background:linear-gradient(90deg, transparent, rgba(124,27,51,0.55), transparent);
+    background:linear-gradient(90deg, transparent, rgba(27,75,130,0.55), transparent);
     animation:bvc-ticker 4.5s linear infinite;
   }
   @keyframes bvc-spin{ to{ transform:rotate(360deg); } }
@@ -397,14 +397,14 @@
   .advisory::before{
     content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
     background-image:
-      repeating-linear-gradient(0deg, rgba(250,247,241,0.06) 0 1px, transparent 1px 36px),
-      repeating-linear-gradient(90deg, rgba(250,247,241,0.06) 0 1px, transparent 1px 36px);
+      repeating-linear-gradient(0deg, rgba(248,250,252,0.06) 0 1px, transparent 1px 36px),
+      repeating-linear-gradient(90deg, rgba(248,250,252,0.06) 0 1px, transparent 1px 36px);
   }
   .advisory::after{
     content:""; position:absolute; inset:-15%; z-index:0; pointer-events:none;
     background:
-      radial-gradient(circle at 84% 18%, rgba(198,138,46,0.20), transparent 42%),
-      radial-gradient(circle at 10% 88%, rgba(198,138,46,0.14), transparent 40%);
+      radial-gradient(circle at 84% 18%, rgba(201,162,75,0.20), transparent 42%),
+      radial-gradient(circle at 10% 88%, rgba(201,162,75,0.14), transparent 40%);
     animation:bvc-pulse-glow 6s ease-in-out infinite alternate;
   }
   @keyframes bvc-pulse-glow{
@@ -413,12 +413,12 @@
   }
   .advisory .wrap{ position:relative; z-index:1; }
   .advisory .section-head h2{ color:#fff; }
-  .advisory .section-head .lede{ color:rgba(250,247,241,0.78); }
+  .advisory .section-head .lede{ color:rgba(248,250,252,0.78); }
   .advisory .eyebrow{ color:var(--ochre); }
   .advisory-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line-inv); border:1px solid var(--line-inv); }
-  .advisory-card{ background:rgba(14,59,55,0.82); position:relative; z-index:1; padding:34px 30px; }
+  .advisory-card{ background:rgba(18,51,95,0.82); position:relative; z-index:1; padding:34px 30px; }
   .advisory-card h4{ font-size:18px; font-weight:500; color:#fff; }
-  .advisory-card p{ font-size:14px; color:rgba(250,247,241,0.75); margin-top:12px; }
+  .advisory-card p{ font-size:14px; color:rgba(248,250,252,0.75); margin-top:12px; }
   @media (max-width:700px){ .advisory-grid{ grid-template-columns:1fr; } }
 
   /* ---------- PROCESS ---------- */
@@ -502,8 +502,8 @@
   }
   .cta-band::before{
     content:""; position:absolute; inset:0;
-    background:radial-gradient(circle at 20% 20%, rgba(198,138,46,0.25), transparent 45%),
-               radial-gradient(circle at 82% 78%, rgba(198,138,46,0.18), transparent 40%);
+    background:radial-gradient(circle at 20% 20%, rgba(201,162,75,0.25), transparent 45%),
+               radial-gradient(circle at 82% 78%, rgba(201,162,75,0.18), transparent 40%);
   }
   .cta-band > *{ position:relative; z-index:1; }
   .cta-band h2{ font-size:clamp(30px,4.2vw,50px); max-width:22ch; margin:0 auto; }
@@ -512,19 +512,19 @@
   .cta-band .btn-outline{ border-color:rgba(255,255,255,0.45); }
 
   /* ---------- FOOTER ---------- */
-  footer{ background:var(--ink); color:rgba(250,247,241,0.7); padding:80px 0 32px; }
+  footer{ background:var(--ink); color:rgba(248,250,252,0.7); padding:80px 0 32px; }
   .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:48px; padding-bottom:56px; border-bottom:1px solid var(--line-inv); }
   .footer-grid .brand{ margin-bottom:16px; }
-  .footer-grid p.desc{ font-size:14px; max-width:32ch; color:rgba(250,247,241,0.6); }
+  .footer-grid p.desc{ font-size:14px; max-width:32ch; color:rgba(248,250,252,0.6); }
   .footer-col h5{
     font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em;
     text-transform:uppercase; color:var(--ochre); margin-bottom:16px;
   }
-  .footer-col a{ display:block; font-size:14px; color:rgba(250,247,241,0.72); padding:6px 0; }
+  .footer-col a{ display:block; font-size:14px; color:rgba(248,250,252,0.72); padding:6px 0; }
   .footer-col a:hover{ color:#fff; }
   .footer-bottom{
     display:flex; justify-content:space-between; padding-top:28px; font-size:12.5px;
-    color:rgba(250,247,241,0.45); flex-wrap:wrap; gap:10px;
+    color:rgba(248,250,252,0.45); flex-wrap:wrap; gap:10px;
   }
   @media (max-width:880px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
   @media (max-width:560px){ .footer-grid{ grid-template-columns:1fr; } }
@@ -532,11 +532,11 @@
   /* reveal on scroll */
   html.js .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
   html.js .reveal.in{ opacity:1; transform:translateY(0); }
-  html:not(.js) header.site-nav{ background:rgba(20,23,26,.96); }
+  html:not(.js) header.site-nav{ background:rgba(11,37,69,.96); }
   .lang-btn{text-decoration:none;display:inline-block}
   .links .lang-switch{display:inline-flex;align-items:center;gap:2px}
-  .links .lang-btn{padding:6px 11px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.04em;color:rgba(250,247,241,.65);line-height:1.2}
-  .links .lang-btn.active{color:var(--ink,#14171A);font-weight:600}
+  .links .lang-btn{padding:6px 11px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.04em;color:rgba(248,250,252,.65);line-height:1.2}
+  .links .lang-btn.active{color:var(--ink,#0B2545);font-weight:600}
 </style>
 </head>
 <body>
@@ -581,18 +581,18 @@
 <div class="corridor">
   <div class="wrap">
     <svg viewBox="0 0 1600 90" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M20,68 C 220,68 260,14 460,14 C 660,14 620,60 820,60 C 1020,60 980,18 1180,18 C 1380,18 1400,66 1580,66" fill="none" stroke="rgba(250,247,241,0.18)" stroke-width="1"/>
-      <path d="M20,68 C 220,68 260,14 460,14 C 660,14 620,60 820,60 C 1020,60 980,18 1180,18 C 1380,18 1400,66 1580,66" fill="none" stroke="#C68A2E" stroke-width="1.4" stroke-dasharray="3 7" stroke-linecap="round"/>
-      <circle cx="20" cy="68" r="5" fill="#C68A2E"/>
-      <circle cx="196" cy="34" r="3.5" fill="#F3EEE4"/>
-      <circle cx="372" cy="15" r="3.5" fill="#F3EEE4"/>
-      <circle cx="548" cy="25" r="3.5" fill="#F3EEE4"/>
-      <circle cx="724" cy="53" r="3.5" fill="#F3EEE4"/>
-      <circle cx="900" cy="59" r="3.5" fill="#F3EEE4"/>
-      <circle cx="1076" cy="32" r="3.5" fill="#F3EEE4"/>
-      <circle cx="1252" cy="20" r="3.5" fill="#F3EEE4"/>
-      <circle cx="1416" cy="46" r="3.5" fill="#F3EEE4"/>
-      <circle cx="1580" cy="66" r="5" fill="#C68A2E"/>
+      <path d="M20,68 C 220,68 260,14 460,14 C 660,14 620,60 820,60 C 1020,60 980,18 1180,18 C 1380,18 1400,66 1580,66" fill="none" stroke="rgba(248,250,252,0.18)" stroke-width="1"/>
+      <path d="M20,68 C 220,68 260,14 460,14 C 660,14 620,60 820,60 C 1020,60 980,18 1180,18 C 1380,18 1400,66 1580,66" fill="none" stroke="#C9A24B" stroke-width="1.4" stroke-dasharray="3 7" stroke-linecap="round"/>
+      <circle cx="20" cy="68" r="5" fill="#C9A24B"/>
+      <circle cx="196" cy="34" r="3.5" fill="#F2F5F9"/>
+      <circle cx="372" cy="15" r="3.5" fill="#F2F5F9"/>
+      <circle cx="548" cy="25" r="3.5" fill="#F2F5F9"/>
+      <circle cx="724" cy="53" r="3.5" fill="#F2F5F9"/>
+      <circle cx="900" cy="59" r="3.5" fill="#F2F5F9"/>
+      <circle cx="1076" cy="32" r="3.5" fill="#F2F5F9"/>
+      <circle cx="1252" cy="20" r="3.5" fill="#F2F5F9"/>
+      <circle cx="1416" cy="46" r="3.5" fill="#F2F5F9"/>
+      <circle cx="1580" cy="66" r="5" fill="#C9A24B"/>
     </svg>
     <div class="corridor-label">
       <span>DOHA</span><span>DAKAR</span><span>CONAKRY</span><span>OUAGADOUGOU</span><span>ABIDJAN</span><span>LIBREVILLE</span><span>DOUALA</span><span>NAIROBI</span><span>LUSAKA</span><span>CAPE TOWN</span>
